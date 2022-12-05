@@ -20,9 +20,6 @@ function Navbar() {
             <Link to="/home">Home</Link>
           </li>
           <li>
-            <Link to="/services">Services</Link>
-          </li>
-          <li>
             <Link to="/skills">Skills</Link>
           </li>
           <li>

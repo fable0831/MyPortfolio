@@ -95,7 +95,6 @@ const Section = styled.section`
     bottom: -6rem;
     right: 0;
     background-color: var(--secondary-color);
-    opacity: 0.7;
     color: white;
     padding: 4rem;
     .grid {
