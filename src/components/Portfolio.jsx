@@ -65,13 +65,16 @@ function Portfolio() {
 const Section = styled.section`
   min-height: 100vh;
   position: relative;
+  background-color: #433b76;
+
   .decoration {
     position: absolute;
     height: 20rem;
     width: 70vw;
-    border: 0.5rem solid var(--primary-color);
+    border: 0.5rem solid var(--tertiary-color);
     left: 15%;
-    top: -2rem;
+    top: -3rem;
+    opacity: 0.7;
   }
   .portfolios {
     display: grid;
@@ -79,9 +82,13 @@ const Section = styled.section`
     gap: 3rem;
     margin: 5rem 20rem;
     .portfolio {
+      padding: 1rem;
+      margin-top: 4rem;
+      background-color: white;
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      border-radius: 2rem;
     }
     .image {
       height: 22rem;
@@ -102,12 +109,11 @@ const Section = styled.section`
     }
     .subTitle {
       text-align: center;
-      color: var(--primary-color);
+      color: var(--tertiary-color);
       font-weight: bolder;
       text-transform: uppercase;
     }
     .description {
-      text-align: center;
       height: 10rem;
       color: black;
     }
@@ -119,6 +125,8 @@ const Section = styled.section`
       span {
         letter-spacing: 0.1rem;
         text-transform: uppercase;
+        font-weight: bold;
+        color: var(--tertiary-color);
       }
     }
   }

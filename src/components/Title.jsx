@@ -13,10 +13,10 @@ const Div = styled.div`
   position: relative;
   h1 {
     position: absolute;
-    transform: translateX(-42%) translateY(20vw) rotate(-90deg);
+    transform: translateX(-40%) translateY(20vw) rotate(-90deg);
     font-size: 7rem;
     text-transform: uppercase;
-    color: var(--secondary-color);
+    color: var(--primary-color);
     font-weight: 200;
     margin-left: ${(props) => props.left};
   }

@@ -17,7 +17,7 @@ function Navbar() {
       <div className="links">
         <ul>
           <li>
-            <Link to="/home">Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
             <Link to="/skills">Skills</Link>

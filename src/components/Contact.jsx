@@ -5,7 +5,7 @@ import Title from "./Title";
 function Contact() {
   return (
     <Section id="contact">
-      <Title name="contact" />
+      <Title name="contact" left="0.5rem" />
       <div className="contact">
         <div className="contactTitle">
           <p>안녕하세요!</p>
@@ -33,8 +33,8 @@ function Contact() {
                 <strong>주 소</strong> 서울특별시 세곡동
               </p>
               <p>
-                <strong>교 육 과 정</strong> 청년취업사관학교(SeSAC) MSA
-                스페셜리스트 과정
+                <strong>교 육 과 정</strong> 청년취업사관학교 MSA 스페셜리스트
+                과정
               </p>
             </div>
           </div>
@@ -52,16 +52,18 @@ function Contact() {
 
 const Section = styled.section`
   min-height: 100vh;
+  padding-top: 1px;
   .contact {
-    color: var(--primary-color);
+    color: black;
     margin: 0 23rem;
     .contactTitle {
-      margin: 6rem 0;
+      margin: 8rem 0;
       p {
         letter-spacing: 0.2rem;
+        color: var(--tertiary-color);
       }
       h2 {
-        color: var(--secondary-color);
+        color: var(--tertiary-color);
         font-size: 2rem;
       }
     }
@@ -83,9 +85,11 @@ const Section = styled.section`
         div {
           p {
             display: flex;
+            box-sizing: border-box;
             strong {
               box-sizing: border-box;
-              width: 10rem;
+              width: 8rem;
+              color: var(--tertiary-color);
             }
           }
         }

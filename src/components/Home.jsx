@@ -24,7 +24,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="info">
+      {/* <div className="info">
         <div className="grid">
           <div className="col">
             <strong>이 름</strong>
@@ -51,7 +51,7 @@ function Home() {
             <p>MSA 스페셜리스트 과정</p>
           </div>
         </div>
-      </div>
+      </div> */}
     </Section>
   );
 }

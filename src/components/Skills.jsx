@@ -70,7 +70,6 @@ function Skills() {
 const Section = styled.section`
   overflow: hidden;
   .container {
-    background-color: #fff78d;
     min-height: 100vh;
     display: flex;
     flex-direction: column;

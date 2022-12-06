@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
 :root {
   --primary-color: #eeda25;
   --secondary-color: #00b9ef;
+  --tertiary-color: #d5648a;
   --font-family: 'Roboto Mono', monospace, "Poppins", sans-serif;
 }
 
