@@ -2,15 +2,38 @@ import React from "react";
 import { BsGithub } from "react-icons/bs";
 import styled from "styled-components";
 import { MdWeb } from "react-icons/md";
+import useScroll from "./useScroll";
+import { motion } from "framer-motion";
+import { footerLogoAnimations, footerTextAnimations } from "animation";
 
 function Footer() {
+  const [element, controls] = useScroll();
   return (
-    <Foot>
-      <span>&copy; 2022. KimJooSang. All rights reserved.</span>
-      <div className="footerIcons">
+    <Foot ref={element}>
+      <motion.span
+        variants={footerTextAnimations}
+        animate={controls}
+        transition={{
+          delay: 0.02,
+          type: "tween",
+          duration: 0.8,
+        }}
+      >
+        &copy; 2022. KimJooSang. All rights reserved.
+      </motion.span>
+      <motion.div
+        className="footerIcons"
+        variants={footerLogoAnimations}
+        animate={controls}
+        transition={{
+          delay: 0.02,
+          type: "tween",
+          duration: 0.8,
+        }}
+      >
         <BsGithub />
         <MdWeb />
-      </div>
+      </motion.div>
     </Foot>
   );
 }

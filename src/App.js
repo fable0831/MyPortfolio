@@ -6,10 +6,11 @@ import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Footer from "components/Footer";
 import GlobalStyle from "GlobalStyle";
+import { motion } from "framer-motion";
 
 function App() {
   return (
-    <div>
+    <motion.div initial="hidden" animate="show">
       <GlobalStyle />
       <ScrollToTop />
       <Home />
@@ -17,7 +18,7 @@ function App() {
       <Portfolio />
       <Contact />
       <Footer />
-    </div>
+    </motion.div>
   );
 }
 

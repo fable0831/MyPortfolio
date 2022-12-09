@@ -5,9 +5,13 @@ import skill1 from "assets/skill1.png";
 import skill2 from "assets/skill2.png";
 import skill3 from "assets/skill3.png";
 import skillLogo from "assets/skillLogo.png";
+import { motion } from "framer-motion";
+import useScroll from "./useScroll";
+import { skillsAnimations } from "animation";
 
 function Skills() {
   const [selected, setSelected] = useState(0);
+  const [element, controls] = useScroll();
   const skillsData = [
     {
       name: "Front-end",
@@ -23,16 +27,24 @@ function Skills() {
     },
   ];
   return (
-    <Section>
+    <Section ref={element}>
       <Title name="skills" left="1rem" />
       <div className="bakground"></div>
       <div className="container">
         <div className="skills">
           {skillsData.map(({ name, image }, index) => {
             return (
-              <div
+              <motion.div
                 className={`skill ${selected === index ? "active" : "hidden"}`}
                 key={index}
+                variants={skillsAnimations}
+                animate={controls}
+                transition={{
+                  delay: 0.03,
+                  type: "tween",
+                  duration: 0.8,
+                }}
+                whileInView={{ opacity: 1 }}
               >
                 <div className="image">
                   <div className="circle1"></div>
@@ -44,11 +56,20 @@ function Skills() {
                   <h3 className="name">{name}</h3>
                 </div>
                 <img src={image} alt="skillImage" />
-              </div>
+              </motion.div>
             );
           })}
         </div>
-        <div className="controls">
+        <motion.div
+          className="controls"
+          variants={skillsAnimations}
+          animate={controls}
+          transition={{
+            delay: 0.03,
+            type: "tween",
+            duration: 0.8,
+          }}
+        >
           <button
             className={selected === 0 ? "active" : ""}
             onClick={() => setSelected(0)}
@@ -61,7 +82,7 @@ function Skills() {
             className={selected === 2 ? "active" : ""}
             onClick={() => setSelected(2)}
           ></button>
-        </div>
+        </motion.div>
       </div>
     </Section>
   );
@@ -122,6 +143,9 @@ const Section = styled.section`
           font-size: 2rem;
           color: var(--secondary-color);
         }
+      }
+      img {
+        width: 30rem;
       }
       .hidden {
         display: none;

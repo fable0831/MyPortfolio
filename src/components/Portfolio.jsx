@@ -5,8 +5,13 @@ import placeholder from "assets/placeholder.png";
 import github from "assets/github.png";
 import portfolio from "assets/portfolio.png";
 import cloudLibrary from "assets/cloudLibrary.gif";
+import useScroll from "./useScroll";
+import { motion } from "framer-motion";
+import { portfolioAnimations } from "animation";
 
 function Portfolio() {
+  const [element, controls] = useScroll();
+
   const portfolioData = [
     {
       portfolioImage: portfolio,
@@ -31,14 +36,19 @@ function Portfolio() {
   ];
 
   return (
-    <Section id="portfolio">
+    <Section id="portfolio" ref={element}>
       <Title name={"portfolio"} />
       <div className="decoration"></div>
       <div className="portfolios">
         {portfolioData.map(
           ({ title, subTitle, description, portfolioImage }) => {
             return (
-              <div className="portfolio">
+              <motion.div
+                className="portfolio"
+                variants={portfolioAnimations}
+                animate={controls}
+                transition={{ delay: 0.03, type: "tween", duration: 0.8 }}
+              >
                 <div className="image">
                   <img src={portfolioImage} alt="PortfolioImg" />
                 </div>
@@ -53,7 +63,7 @@ function Portfolio() {
                   <img src={github} alt="play" />
                   <span>Read More</span>
                 </div>
-              </div>
+              </motion.div>
             );
           }
         )}
@@ -75,6 +85,7 @@ const Section = styled.section`
     left: 15%;
     top: -3rem;
     opacity: 0.7;
+    z-index: 1;
   }
   .portfolios {
     display: grid;

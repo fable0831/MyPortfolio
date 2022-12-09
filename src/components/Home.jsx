@@ -2,12 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import Navbar from "./Navbar";
 import home from "assets/home.jpg";
+import { motion } from "framer-motion";
+import { homeAnimations } from "animation";
 
 function Home() {
   return (
     <Section id="home">
       <Navbar />
-      <div className="home">
+      <motion.div
+        className="home"
+        variants={homeAnimations}
+        transition={{ delay: 0.3, duration: 0.6, type: "tween" }}
+      >
         <div className="content">
           <div className="title">
             <h1>
@@ -23,7 +29,7 @@ function Home() {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
       {/* <div className="info">
         <div className="grid">
           <div className="col">
