@@ -1,22 +1,18 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import { FaChevronUp } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { FaChevronUp } from 'react-icons/fa';
 
 function ScrollToTop() {
   const [visible, setVisible] = useState(false);
-  useEffect(() => {});
-  window.addEventListener("scroll", () => {
+
+  window.addEventListener('scroll', () => {
     window.pageYOffset > 100 ? setVisible(true) : setVisible(false);
   });
   return (
     <Div>
-      <a href="#" className={`${visible ? "block" : "none"}`}>
+      <a href="#" className={`${visible ? 'block' : 'none'}`}>
         <FaChevronUp />
       </a>
-      {/* <Link to="/" className={`${visible ? "block" : "none"}`}>
-         <FaChevronUp />
-       </Link> */}
     </Div>
   );
 }

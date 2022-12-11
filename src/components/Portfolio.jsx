@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import Title from "./Title";
-import placeholder from "assets/placeholder.png";
-import github from "assets/github.png";
-import portfolio from "assets/portfolio.png";
-import cloudLibrary from "assets/cloudLibrary.gif";
-import useScroll from "./useScroll";
-import { motion } from "framer-motion";
-import { portfolioAnimations } from "animation";
+import React from 'react';
+import styled from 'styled-components';
+import Title from './Title';
+import placeholder from 'assets/placeholder.png';
+import github from 'assets/github.png';
+import portfolio from 'assets/portfolio.png';
+import cloudLibrary from 'assets/cloudLibrary.gif';
+import useScroll from './useScroll';
+import { motion } from 'framer-motion';
+import { portfolioAnimations } from 'animation';
 
 function Portfolio() {
   const [element, controls] = useScroll();
@@ -15,29 +15,29 @@ function Portfolio() {
   const portfolioData = [
     {
       portfolioImage: portfolio,
-      title: "Portfolio Website",
-      subTitle: "개인 프로젝트",
+      title: 'Portfolio Website',
+      subTitle: '개인 프로젝트',
       description:
-        "포트폴리오 용으로 제작한 사이트입니다. React와 styled-components를 사용하여 반응형 웹사이트로 제작하였습니다. ",
+        '포트폴리오 용으로 제작한 사이트입니다. React와 styled-components를 사용하여 반응형 웹사이트로 제작하였습니다. ',
     },
     {
       portfolioImage: cloudLibrary,
-      title: "Cloud Library",
-      subTitle: "6인 팀 프로젝트",
+      title: 'Cloud Library',
+      subTitle: '6인 팀 프로젝트',
       description:
-        "Cloud Library는 한 번의 회원가입, 통합 도서 데이터 관리로 도서관 관리자와 사용자에게 하나의 도서관을 제공하는 서비스입니다 ",
+        'Cloud Library는 한 번의 회원가입, 통합 도서 데이터 관리로 도서관 관리자와 사용자에게 하나의 도서관을 제공하는 서비스입니다 ',
     },
     {
       portfolioImage: placeholder,
-      title: "제작중",
-      subTitle: "개인 프로젝트",
-      description: "제작중인 사이트입니다 ",
+      title: '제작중',
+      subTitle: '개인 프로젝트',
+      description: '제작중인 사이트입니다 ',
     },
   ];
 
   return (
     <Section id="portfolio" ref={element}>
-      <Title name={"portfolio"} />
+      <Title name={'portfolio'} />
       <div className="decoration"></div>
       <div className="portfolios">
         {portfolioData.map(
@@ -45,9 +45,10 @@ function Portfolio() {
             return (
               <motion.div
                 className="portfolio"
+                key={title}
                 variants={portfolioAnimations}
                 animate={controls}
-                transition={{ delay: 0.03, type: "tween", duration: 0.8 }}
+                transition={{ delay: 0.03, type: 'tween', duration: 0.8 }}
               >
                 <div className="image">
                   <img src={portfolioImage} alt="PortfolioImg" />
@@ -76,7 +77,6 @@ const Section = styled.section`
   min-height: 100vh;
   position: relative;
   background-color: #433b76;
-
   .decoration {
     position: absolute;
     height: 20rem;
@@ -138,6 +138,31 @@ const Section = styled.section`
         text-transform: uppercase;
         font-weight: bold;
         color: var(--tertiary-color);
+      }
+    }
+  }
+  @media screen and (min-width: 280px) and (max-width: 1080px) {
+    padding: 1rem 0rem;
+    .decoration {
+      display: none;
+    }
+    .portfolios {
+      padding: 0rem;
+      grid-template-columns: 1fr;
+      margin: 0 1rem;
+    }
+    .portfolio {
+      padding: 0rem;
+      margin: 0rem;
+    }
+    .image {
+      height: 18rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        height: 18rem;
+        width: 18rem;
       }
     }
   }

@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import Navbar from "./Navbar";
-import home from "assets/home.jpg";
-import { motion } from "framer-motion";
-import { homeAnimations } from "animation";
+import React from 'react';
+import styled from 'styled-components';
+import Navbar from './Navbar';
+import home from 'assets/home.jpg';
+import { motion } from 'framer-motion';
+import { homeAnimations } from 'animation';
 
 function Home() {
   return (
@@ -12,7 +12,7 @@ function Home() {
       <motion.div
         className="home"
         variants={homeAnimations}
-        transition={{ delay: 0.3, duration: 0.6, type: "tween" }}
+        transition={{ delay: 0.3, duration: 0.6, type: 'tween' }}
       >
         <div className="content">
           <div className="title">
@@ -107,6 +107,32 @@ const Section = styled.section`
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 4rem;
+    }
+  }
+  @media screen and (min-width: 280px) and (max-width: 1080px) {
+    .home {
+      .content {
+        padding-left: 2rem;
+        width: 100%;
+        margin-bottom: 2rem;
+        .title {
+          h1 {
+            font-size: 4rem;
+            line-height: 4rem;
+          }
+        }
+        .subtitle {
+        p {
+          margin-top:3rem;
+          color: black;
+        }
+      }
+    }
+    .info {
+      position: initial;
+      .grid {
+        grid-template-columns: 1fr;
+      }
     }
   }
 `;

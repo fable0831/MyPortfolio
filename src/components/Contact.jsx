@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import Title from "./Title";
-import { motion } from "framer-motion";
-import useScroll from "./useScroll";
-import { contactAnimations } from "animation";
+import React from 'react';
+import styled from 'styled-components';
+import Title from './Title';
+import { motion } from 'framer-motion';
+import useScroll from './useScroll';
+import { contactAnimations } from 'animation';
 
 function Contact() {
   const [element, controls] = useScroll();
@@ -16,7 +16,7 @@ function Contact() {
         animate={controls}
         transition={{
           delay: 0.03,
-          type: "tween",
+          type: 'tween',
           duration: 0.8,
         }}
       >
@@ -66,6 +66,7 @@ function Contact() {
 const Section = styled.section`
   min-height: 100vh;
   padding-top: 1px;
+  background-color: #e3d7ea;
   .contact {
     color: black;
     margin: 0 23rem;
@@ -145,6 +146,36 @@ const Section = styled.section`
           :hover {
             background-color: var(--secondary-color);
             color: white;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (min-width: 280px) and (max-width: 1080px) {
+    .contact {
+      margin: 1rem;
+      padding: 0 1rem;
+      .contactTitle {
+        margin: 0;
+        text-align: center;
+        p {
+          font-size: 0.8rem;
+        }
+        h2 {
+          font-size: 1.3rem;
+        }
+      }
+      .contactData {
+        grid-template-columns: 1fr;
+        margin: 0;
+        p {
+          text-align: left;
+        }
+        &__form {
+          input {
+          }
+          button {
+            height: 6rem;
           }
         }
       }

@@ -1,33 +1,33 @@
-import React, { useState } from "react";
-import Title from "./Title";
-import styled from "styled-components";
-import skill1 from "assets/skill1.png";
-import skill2 from "assets/skill2.png";
-import skill3 from "assets/skill3.png";
-import skillLogo from "assets/skillLogo.png";
-import { motion } from "framer-motion";
-import useScroll from "./useScroll";
-import { skillsAnimations } from "animation";
+import React, { useState } from 'react';
+import Title from './Title';
+import styled from 'styled-components';
+import skill1 from 'assets/skill1.png';
+import skill2 from 'assets/skill2.png';
+import skill3 from 'assets/skill3.png';
+import skillLogo from 'assets/skillLogo.png';
+import { motion } from 'framer-motion';
+import useScroll from './useScroll';
+import { skillsAnimations } from 'animation';
 
 function Skills() {
   const [selected, setSelected] = useState(0);
   const [element, controls] = useScroll();
   const skillsData = [
     {
-      name: "Front-end",
+      name: 'Front-end',
       image: skill1,
     },
     {
-      name: "Version Control",
+      name: 'Version Control',
       image: skill2,
     },
     {
-      name: "차후 업데이트",
+      name: '차후 업데이트',
       image: skill3,
     },
   ];
   return (
-    <Section ref={element}>
+    <Section ref={element} id="skills">
       <Title name="skills" left="1rem" />
       <div className="bakground"></div>
       <div className="container">
@@ -35,13 +35,13 @@ function Skills() {
           {skillsData.map(({ name, image }, index) => {
             return (
               <motion.div
-                className={`skill ${selected === index ? "active" : "hidden"}`}
+                className={`skill ${selected === index ? 'active' : 'hidden'}`}
                 key={index}
                 variants={skillsAnimations}
                 animate={controls}
                 transition={{
                   delay: 0.03,
-                  type: "tween",
+                  type: 'tween',
                   duration: 0.8,
                 }}
                 whileInView={{ opacity: 1 }}
@@ -66,20 +66,20 @@ function Skills() {
           animate={controls}
           transition={{
             delay: 0.03,
-            type: "tween",
+            type: 'tween',
             duration: 0.8,
           }}
         >
           <button
-            className={selected === 0 ? "active" : ""}
+            className={selected === 0 ? 'active' : ''}
             onClick={() => setSelected(0)}
           ></button>
           <button
-            className={selected === 1 ? "active" : ""}
+            className={selected === 1 ? 'active' : ''}
             onClick={() => setSelected(1)}
           ></button>
           <button
-            className={selected === 2 ? "active" : ""}
+            className={selected === 2 ? 'active' : ''}
             onClick={() => setSelected(2)}
           ></button>
         </motion.div>
@@ -164,6 +164,25 @@ const Section = styled.section`
       .active {
         background-color: transparent;
         border-color: var(--secondary-color);
+      }
+    }
+  }
+  @media screen and (min-width: 280px) and (max-width: 1080px) {
+    .background {
+      display: none;
+    }
+    .container {
+      padding: 4rem 0;
+      .skills {
+        width: 80%;
+        .skill {
+          .description {
+            height: 18rem;
+          }
+        }
+        img {
+          width: 20rem;
+        }
       }
     }
   }

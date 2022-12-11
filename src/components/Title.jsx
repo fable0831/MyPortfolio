@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 function Title({ name, left }) {
   return (
@@ -19,6 +19,9 @@ const Div = styled.div`
     color: var(--primary-color);
     font-weight: 200;
     margin-left: ${(props) => props.left};
+    @media screen and (min-width: 280px) and (max-width: 1080px) {
+      display: none;
+    }
   }
 `;
 
