@@ -4,9 +4,49 @@ import Title from './Title';
 import { motion } from 'framer-motion';
 import useScroll from './useScroll';
 import { contactAnimations } from 'animation';
+import { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 function Contact() {
+  const form = useRef();
   const [element, controls] = useScroll();
+  const [user, setUser] = useState({
+    userName: '',
+    userEmail: '',
+    userMessage: '',
+  });
+  const { userName, userEmail, userMessage } = user;
+
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setUser({ ...user, [name]: value });
+  };
+
+  const onReset = () => {
+    setUser({ userName: '', userEmail: '', userMessage: '' });
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        'portfolioEmail',
+        'template_qolnuld',
+        form.current,
+        '20zJ-OwSKXGvO8Q9X'
+      )
+      .then(
+        (result) => {
+          alert('전송되었습니다.');
+          onReset();
+        },
+        (error) => {
+          alert('전송을 실패했습니다.');
+        }
+      );
+  };
+
   return (
     <Section id="contact" ref={element}>
       <Title name="contact" left="0.5rem" />
@@ -26,14 +66,13 @@ function Contact() {
         </div>
         <div className="contactData">
           <div className="contactDataDescription">
-            <h4>Lorem ipsum dolor sit amet.</h4>
             <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora,
-              sapiente.
+              사용자에게 좋은 경험을 제공할 수 있는 서비스를 만들겠다는 방향성을
+              가지고 프론트엔드 개발자로서의 길을 걷고 있습니다.
             </p>
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Architecto, eos.
+              또한 협업의 가치와 즐거움에 비중을 두고, 원할한 의사소통을
+              기반으로 좀 더 나은 서비스를 만들기 위해 고민하고 있습니다.
             </p>
             <div>
               <p>
@@ -51,12 +90,36 @@ function Contact() {
               </p>
             </div>
           </div>
-          <div className="contactDataForm">
-            <input type="text" placeholder="name" />
-            <input type="email" placeholder="email" />
-            <textarea placeholder="message"></textarea>
-            <button>Send Message</button>
-          </div>
+          <form className="contactDataForm" ref={form} onSubmit={sendEmail}>
+            <input
+              type="text"
+              placeholder="name"
+              required
+              name="userName"
+              onChange={onChange}
+              value={userName}
+            />
+            <input
+              type="email"
+              placeholder="email"
+              required
+              name="userEmail"
+              onChange={onChange}
+              value={userEmail}
+            />
+            <textarea
+              placeholder="message"
+              required
+              name="userMessage"
+              onChange={onChange}
+              value={userMessage}
+            ></textarea>
+            <input
+              type="submit"
+              value="Send Message"
+              className="submitButton"
+            ></input>
+          </form>
         </div>
       </motion.div>
     </Section>
@@ -89,9 +152,6 @@ const Section = styled.section`
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        h4 {
-          font-size: 1.5rem;
-        }
         p {
           letter-spacing: 0.1rem;
           text-align: justify;
@@ -134,7 +194,7 @@ const Section = styled.section`
           height: 50%;
           resize: none;
         }
-        button {
+        .submitButton {
           width: 100%;
           background-color: transparent;
           border: 0.1rem solid var(--secondary-color);

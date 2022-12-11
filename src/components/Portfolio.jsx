@@ -19,6 +19,7 @@ function Portfolio() {
       subTitle: '개인 프로젝트',
       description:
         '포트폴리오 용으로 제작한 사이트입니다. React와 styled-components를 사용하여 반응형 웹사이트로 제작하였습니다. ',
+      link: 'https://github.com/fable0831/MyPortfolio',
     },
     {
       portfolioImage: cloudLibrary,
@@ -26,12 +27,14 @@ function Portfolio() {
       subTitle: '6인 팀 프로젝트',
       description:
         'Cloud Library는 한 번의 회원가입, 통합 도서 데이터 관리로 도서관 관리자와 사용자에게 하나의 도서관을 제공하는 서비스입니다 ',
+      link: 'https://github.com/247CloudLibrary/client-users',
     },
     {
       portfolioImage: placeholder,
       title: '제작중',
       subTitle: '개인 프로젝트',
       description: '제작중인 사이트입니다 ',
+      link: '#',
     },
   ];
 
@@ -41,7 +44,7 @@ function Portfolio() {
       <div className="decoration"></div>
       <div className="portfolios">
         {portfolioData.map(
-          ({ title, subTitle, description, portfolioImage }) => {
+          ({ title, subTitle, description, portfolioImage, link }) => {
             return (
               <motion.div
                 className="portfolio"
@@ -62,7 +65,9 @@ function Portfolio() {
                 </div>
                 <div className="more">
                   <img src={github} alt="play" />
-                  <span>Read More</span>
+                  <a href={link} target="_blank">
+                    Read More
+                  </a>
                 </div>
               </motion.div>
             );
@@ -133,11 +138,12 @@ const Section = styled.section`
       align-items: center;
       gap: 1rem;
       cursor: pointer;
-      span {
+      a {
         letter-spacing: 0.1rem;
         text-transform: uppercase;
         font-weight: bold;
         color: var(--tertiary-color);
+        text-decoration: none;
       }
     }
   }
@@ -164,6 +170,17 @@ const Section = styled.section`
         height: 18rem;
         width: 18rem;
       }
+    }
+  }
+
+  @media screen and (min-width: 1081px) and (max-width: 1780px) {
+    .decoration {
+      display: none;
+    }
+    .portfolios {
+      padding: 10rem;
+      grid-template-columns: 1fr;
+      margin: 0 1rem;
     }
   }
 `;

@@ -124,7 +124,8 @@ const Section = styled.section`
         .subtitle {
         p {
           margin-top:3rem;
-          color: black;
+          color: var(--secondary-color);
+          font-weight: bolder;
         }
       }
     }
