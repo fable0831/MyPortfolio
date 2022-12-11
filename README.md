@@ -1,7 +1,7 @@
 <div align="center">
   <img src = "src\assets\portfolio.png">
   
-  |　<a href="">사이트</a>　|　<a href="">블로그</a>　|　　
+  |　<a href="https://fable0831.github.io/MyPortfolio">사이트</a>　|　<a href="https://velog.io/@fable0831/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0">블로그</a>　|　　
   <br>
 </div>
 <br>
