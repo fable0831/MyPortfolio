@@ -1,7 +1,7 @@
 <div align="center">
   <img src = "src\assets\portfolio.png">
   
-  |　<a href="https://fable0831.github.io/MyPortfolio">사이트</a>　|　<a href="https://velog.io/@fable0831/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0">블로그</a>　|　　
+  |　<a href="https://fable0831.netlify.app">사이트</a>　|　<a href="https://velog.io/@fable0831/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0">블로그</a>　|　　
   <br>
 </div>
 <br>
@@ -19,7 +19,7 @@
 ## 📚 기능
 
 - 미디어 쿼리를 사용해 반응형 웹사이트로 제작
-- 깃헙 페이지로 호스팅
+- Netlify로 호스팅
 
 ## 🎓 차후 업데이트 방향
 
