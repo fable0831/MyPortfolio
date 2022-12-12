@@ -4,7 +4,6 @@ import logo from 'assets/logo.png';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdClose } from 'react-icons/md';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import useScroll from './useScroll';
 import { navAnimations } from 'animation';
 
@@ -41,17 +40,17 @@ function Navbar() {
       </div>
       <div className={`links ${isNavOpen ? 'show' : ''}`}>
         <ul>
-          <li>
-            <Link to="/home">Home</Link>
+          <li className="active">
+            <a href="#home">Home</a>
           </li>
           <li>
-            <Link to="/skills">Skills</Link>
+            <a href="#skills">Skills</a>
           </li>
           <li>
-            <Link to="/portfolio">Portfolio</Link>
+            <a href="#portfolio">Portfolio</a>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <a href="#contact">Contact</a>
           </li>
         </ul>
       </div>
@@ -80,7 +79,7 @@ const Nav = styled(motion.nav)`
       display: flex;
       gap: 3rem;
       li {
-        :first-child {
+        :hover {
           border-bottom: 0.2rem solid var(--secondary-color);
         }
         a {
