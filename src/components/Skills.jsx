@@ -22,7 +22,7 @@ function Skills() {
       image: skill2,
     },
     {
-      name: '차후 업데이트',
+      name: 'Deployment',
       image: skill3,
     },
   ];
